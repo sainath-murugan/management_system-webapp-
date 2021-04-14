@@ -134,7 +134,7 @@ DEFAULT_FILE_STORAGE = "webapp.storage_backends.PublicMediaStorage"
  
  # Specification of website
   In this website the admin can manage the orders of the customer. The admin page has many specification such as update, delete the customer's order.
-  And i have used `model` method `count()` to show number of orders- delivered, pending, total in the home page from the database. I have also used Bootstrap to style the page.
+  And i have used `model` method `count()` to show number of orders- delivered, pending, total in the home page from the database. And in the customer id's page, the customer can view the number of order placed by him.  I have also used Bootstrap to style the page.
 
   ``` python
 @login_required(login_url="login")
