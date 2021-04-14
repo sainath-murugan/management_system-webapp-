@@ -4,4 +4,13 @@ This project is developed by python library "django".I have used many classes an
 Read below to view the specification of the website 👇
 
 # features in the website
+
 * registeration
+* AWS RDS database
+* Good login/out feature
+* Password reset feature
+* User profile page with image
+* Backend works
+* Deployment in Heroku
+
+
