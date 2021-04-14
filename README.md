@@ -128,7 +128,7 @@ MEDIA_URL = "https://%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
 DEFAULT_FILE_STORAGE = "webapp.storage_backends.PublicMediaStorage"
 ```
 # Deployment in Heroku   
- I have deployed the app in heroku and the app is in live so anyone can view it. [click here](https://sainathmanagement.herokuapp.com)
+ I have deployed the app in heroku and the app is in live so anyone can view it.
  You can also register your id [here](https://sainathmanagement.herokuapp.com/register)
  
       
