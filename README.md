@@ -48,3 +48,25 @@ def logout_user(request):
     logout(request)
     return redirect("login")
 ```
+
+# Password reset
+  Django provides a good password reset capability by email. I have implemented the feature in this project so the user can reset their password when they want.
+  
+  ``` python
+    from django.contrib.auth import views as auth_views
+    
+    
+    path("reset_password", auth_views.PasswordResetView.as_view(template_name="accounts/reset_password.html"), name="reset_password"),
+    path("reset_password_sent", auth_views.PasswordResetDoneView.as_view(template_name="accounts/reset_password_sent.html"), name="password_reset_done"),
+    path("reset/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(template_name="accounts/reset_password_email.html"), name="password_reset_confirm"),
+    path("reset_password_complete", auth_views.PasswordResetCompleteView.as_view(template_name="accounts/password_reset_complete.html"), name="password_reset_complete")
+      ```
+      
+      
+      
+      
+      
+      
+      
+      
+      
