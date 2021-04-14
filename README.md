@@ -12,6 +12,7 @@ Read below to view the specification of the website 👇
 * Backend works
 * AWS RDS database and s3 bucket
 * Deployment in Heroku
+* Specification of website
 
 # REGISTERATION
    I have created a form class in `form.py` file and implemented the form in registeration page to create User with django class `from django.contrib.auth.models import User`. It is used to create a customer id.
@@ -131,7 +132,21 @@ DEFAULT_FILE_STORAGE = "webapp.storage_backends.PublicMediaStorage"
  I have deployed the app in heroku and the app is in live so anyone can view it.
  You can also register your id [here](https://sainathmanagement.herokuapp.com/register)
  
-      
-      
-      
+ # Specification of website
+  In this website the admin can manage the orders of the customer. The admin page has many specification such as update, delete the customer's order.
+  And i have used `model` method `count()` to show number of orders- delivered, pending, total in the home page from the database. I have also used Bootstrap to style the page.
+
+  ``` python
+@login_required(login_url="login")
+@admin_only
+def home(request):
+    
+    order = Order.objects.all()
+    customer = Customer.objects.all()
+    total_orders = order.count()
+    delivered = order.filter(status="delivered").count()
+    pending = order.filter(status="pending").count()
+    return render(request, "accounts/dashboard.html", {"orders": order, "customer": customer, "total_order": total_orders, "delivered": delivered, "pending": pending})
+   ```
+  
       
