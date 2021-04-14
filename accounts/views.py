@@ -10,8 +10,7 @@ from .filters import OrderFilter
 from django.contrib import messages
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth.models import Group
-# sai
-#sainath@3
+
 
 @unauthenticated_user
 def login_user(request):
