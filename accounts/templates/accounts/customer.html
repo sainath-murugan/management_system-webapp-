@@ -1,0 +1,97 @@
+{% extends "accounts/layout.html"%}
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Customer</h5>
+            <hr>
+            <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'create_order' customer.id %}">place order</a><hr>
+            <a class="btn btn-outline-info btn-sm btn-block" href="">Delete customer</a>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Content Information</h5>
+            <hr>
+            <p>Email:{{customer.email}} </p>
+             <p>Phone:{{customer.phone}} </p>
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Total Orders</h5>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">{{order_count}}</h1>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+            <form method="get">
+              {{ order_filter.form }}
+                <button class="btn btn-primary" type="submit">search</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Products</th>
+                    <th>note</th>
+                    <th>category</th>
+                    <th>date ordered</th>
+                    <th>status</th>
+                    <th>update</th>
+                    <th>remove</th>
+                </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{order.products}}</td>
+                    <td>{{order.note}}</td>
+                    <td>{{order.products.category}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">update</a></td>
+                    <td><button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">Delete </button></td>
+                  
+                
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Please select any one option</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to delete?
+        </div>
+        <div class="modal-footer">
+          <form method="POST" action="{% url 'delete_order'  order.id %}">
+            {% csrf_token %}
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

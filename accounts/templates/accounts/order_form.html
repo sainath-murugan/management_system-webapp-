@@ -1,0 +1,12 @@
+{% extends "accounts/layout.html" %}
+{% block content %}  
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ formset.management_form}}
+    {% for form in formset %}
+        {{ form }}
+        <hr>
+    {% endfor %}
+    <input type="submit" name="submit">
+</form>
+{% endblock %}

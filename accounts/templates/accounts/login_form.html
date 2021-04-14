@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/form.css' %}">
+    <title>login</title>
+ 
+</head>
+<body>
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> Sign In </h2>
+          <h2 class="inactive underlineHover">Sign Up </h2>
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+           <p>login Form</p>
+          </div>
+          <form action="" method="POST">
+            {% csrf_token %}
+          <!-- Login Form -->
+            <input type="text" class="fadeIn second" placeholder="username" name="username">
+            <input type="password" class="fadeIn second"  placeholder="password" name="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="{% url 'reset_password' %}">Forgot Password?</a>
+          </div>
+      
+        </div>
+      </div>
+</body>
+</html>
