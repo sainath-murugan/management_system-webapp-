@@ -129,8 +129,7 @@ MEDIA_URL = "https://%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
 DEFAULT_FILE_STORAGE = "webapp.storage_backends.PublicMediaStorage"
 ```
 # Deployment in Heroku   
- I have deployed the app in heroku and the app is in live so anyone can view it.
- You can also register your id [here](https://sainathmanagement.herokuapp.com/register)
+ I have deployed the app in heroku
  
  # Specification of website
   In this website the admin can manage the orders of the customer. The admin page has many specification such as update, delete the customer's order.
